@@ -12,6 +12,7 @@ init
   //vars.igtJP = (IntPtr)0x30058C810; //JP version igt pointer
   vars.invJP = (IntPtr)0x30058E3C8; //JP version inv pointer (13 on inv, 11 out)
   vars.invState = 0;
+  vars.pointerinv = IntPtr.Zero;
   /*
   vars.igt = 0.0d;
   vars.previgt = 0.0d;
@@ -20,7 +21,6 @@ init
   vars.previnvState = 0;
   vars.lastTime = DateTime.UtcNow;
   vars.pointerigt = IntPtr.Zero;
-  vars.pointerinv = IntPtr.Zero;
   */
 }
 
@@ -104,9 +104,13 @@ update
 
 isLoading
 {
-  if vars.invState == 12 //12 is pause menu
+  if (vars.invState == 12) //12 is pause menu
   {
     return true;
+  }
+  else
+  {
+    return false;
   }
 }
 
